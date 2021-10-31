@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'popper.js';
-import { event } from 'jquery';
 class App extends Component{
 constructor(props) { 
    super(props);  
