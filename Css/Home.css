@@ -1,0 +1,84 @@
+
+#Main{
+    background:url(/src/picture/HmoeBG.JPG);
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+  }
+#Mask
+{
+  background-color: black;
+}
+#MaskTop
+{
+  background-color: black;
+  height: 100%;
+  animation: Height0 0.5s 5.6s forwards;
+}
+#MaskBottom
+{
+  height: 0%;
+  animation: Height100 1s 5.6s forwards;
+}
+#HomeBody
+{
+  font-size: 1.4rem;
+  text-align:center;
+  font-weight: bold;
+  padding-top:2px;
+  animation: MaskSpanAll 2s 3.6s ;
+  background-color: transparent;
+}
+  #HomeBody span
+  {
+      margin-left: 8px;
+      color: black;
+  }
+  #HomeBody span:nth-child(1)
+  {
+    animation: MaskSpan 1.2s;
+  }
+  #HomeBody span:nth-child(2)
+  {
+    animation: MaskSpan 0.8s 1.2s ;
+  }
+  #HomeBody span:nth-child(3)
+  {
+    animation: MaskSpan 0.8s 2s ;
+  }
+  #HomeBody span:nth-child(4)
+  {
+    animation: MaskSpan 0.8s 2.8s ;
+  }
+  @keyframes MaskSpan {
+    0% {
+      background-color: transparent;
+    }
+    70% {
+      background-color: aliceblue;
+    }
+  }
+
+  @keyframes MaskSpanAll {
+    0% {
+      background-color: aliceblue;
+    }
+    20% {
+      background-color: aliceblue;
+    }
+    60% {
+      background-color: transparent;
+    }
+  }
+
+  @keyframes Height0 {
+    100% {
+      height: 0%;
+    }
+  }
+
+  @keyframes Height100 {
+    100% {
+      height: 100%;
+    }
+  }
+  
