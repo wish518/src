@@ -53,6 +53,13 @@ html,body,#root,#MainForm{
   width: 100%;
   height: 100%;
   z-index: 999;
+  top: 0;
+}
+#Menu a{
+  font-family: cursive;
+  color: lightgoldenrodyellow;;
+  text-decoration:none;
+  min-width: 48px;
 }
 #Menu1{
   position: relative;
@@ -72,6 +79,7 @@ html,body,#root,#MainForm{
   -moz-transition:margin-left 0.5s;
   -o-transition: margin-left 0.5s;
   -ms-transition: margin-left 0.5s;
+  overflow: hidden;
 }
 #Menu2{
   position: relative;
@@ -89,4 +97,27 @@ html,body,#root,#MainForm{
   vertical-align: top;
   display: inline-block;
   margin-left: -3.6px;
+}
+  
+.Menu1LinkDiv{
+  width: 100%;
+  float: right;
+  border-bottom: black 1.5px solid;
+  min-height: 25px;
+}
+.Menu1Link{
+  border-radius:10px 10px 0px 10px;
+  background: radial-gradient(black, transparent) no-repeat;
+  background-size:100%;
+  width: 80%;
+  background-position: right;
+  float: right;
+  color: lightgoldenrodyellow;
+  font-family: cursive;
+  white-space:nowrap;
+  -webkit-transition: background-size 1s;
+  -moz-transition:background-size 1s;
+  -o-transition: background-size 1s;
+  -ms-transition: background-size 1s;
+  transition:background-size 1s;
 }

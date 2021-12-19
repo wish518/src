@@ -7,17 +7,25 @@
 #Mask
 {
   background-color: black;
+  overflow: hidden;
+  z-index: 9999;
 }
 #MaskTop
 {
   background-color: black;
   height: 100%;
-  animation: Height0 0.5s 5.6s forwards;
+  animation: Height0 0.5s 4.7s forwards;
+  z-index: 9999;
 }
 #MaskBottom
 {
   height: 0%;
-  animation: Height100 1s 5.6s forwards;
+  animation: Height100 1s 4.7s;
+  z-index: 9999;
+}
+.MaskBottom
+{
+  animation: Height0 1s 4.7s forwards;
 }
 #HomeBody
 {
@@ -25,7 +33,7 @@
   text-align:center;
   font-weight: bold;
   padding-top:2px;
-  animation: MaskSpanAll 2s 3.6s ;
+  animation: MaskSpanAll 1s 3.6s ;
   background-color: transparent;
 }
   #HomeBody span
@@ -81,4 +89,3 @@
       height: 100%;
     }
   }
-  

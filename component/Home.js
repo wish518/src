@@ -5,9 +5,13 @@ import App from '../App';
 class Home extends Component{
   componentDidMount(){
      //alert('GOGO')
+      document.getElementById('Menu').style.display="none"
      setTimeout(function(){
        document.getElementById('Mask').style.backgroundColor="transparent"
      }, 3600);
+     setTimeout(function(){
+       document.getElementById('Menu').style.display="block"
+     }, 5200);
   }
  render(){
    return(
@@ -21,8 +25,8 @@ class Home extends Component{
             <span className="p-1">For</span>
             <span className="p-1">Lunch</span>
           </div>
-          <div id="MaskBottom"></div>
-          <div className="h-100" style={{backgroundColor: "black"}}></div>
+          <div id="MaskBottom" className="MaskBottom"></div>
+          <div className="MaskBottom" style={{height: "100%",backgroundColor: "black"}}></div>
         </div>
     </div>  
    );

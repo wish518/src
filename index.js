@@ -1,15 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Home from './component/Home';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Route,Link,Switch } from 'react-router-dom';
+import Home from './component/Home';
+import ITNotes from './component/ITNotes';
 
 
 ReactDOM.render(
-   <Home/>
+  <BrowserRouter >
+    <Switch >
+      <Home/>
+    </Switch>
+  </BrowserRouter>
   ,document.getElementById('root')
 );
 
