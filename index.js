@@ -5,16 +5,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Route,Link,Switch } from 'react-router-dom';
+import { BrowserRouter, Route,Link,Routes } from 'react-router-dom';
 import Home from './component/Home';
 import ITNotes from './component/ITNotes';
 
 
 ReactDOM.render(
-  <BrowserRouter >
-    <Switch >
-      <Home/>
-    </Switch>
+  <BrowserRouter>
+    <Routes>
+        <Route index element={<Home />} />
+        <Route path="ITNotes" element={<ITNotes />}/>
+    </Routes>
   </BrowserRouter>
   ,document.getElementById('root')
 );
