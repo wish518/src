@@ -20,10 +20,10 @@ class Home extends Component{
         <div id="Mask" className="h-100">
           <div style={{height: "30%"}}><div id="MaskTop"></div></div>
           <div id="HomeBody" > 
-            <span className="p-1">So,</span>
-            <span className="p-1">What's</span>
-            <span className="p-1">For</span>
-            <span className="p-1">Lunch</span>
+            <span className="p-1">True</span>
+            <span className="p-1">(Two)</span>
+            <span className="p-1">Equal</span>
+            <span className="p-1">One</span>
           </div>
           <div id="MaskBottom" className="MaskBottom"></div>
           <div className="MaskBottom" style={{height: "100%",backgroundColor: "black"}}></div>

@@ -66,7 +66,7 @@ html,body,#root,#MainForm{
   top:5%;
   width: 35%;
   max-width: 296px;
-  height: 50%;
+  /*height: 50%;*/
   border: 3.5px solid crimson;
   border-left: 0;
   background-color:lightgoldenrodyellow;
