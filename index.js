@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route,Link,Routes } from 'react-router-dom';
+import './JS/config.js'
 import Home from './component/Home';
 import ITNotes from './component/ITNotes';
 
