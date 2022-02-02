@@ -10,7 +10,6 @@ import './JS/config.js'
 import Home from './component/Home';
 import ITNotes from './component/ITNotes';
 
-
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
