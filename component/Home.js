@@ -15,7 +15,7 @@ class Home extends Component{
   }
  render(){
    return(
-    <div  id="Main" className="Home"> 
+    <div  id="HomeMain" className="Home h-100"> 
         <App/>
         <div id="Mask" className="h-100">
           <div style={{height: "30%"}}><div id="MaskTop"></div></div>

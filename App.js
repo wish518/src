@@ -54,7 +54,7 @@ constructor(props) {
     {
       Menu1Link=(
       <div id="Menu1Link">
-        <div id="ITNote" className="Menu1LinkDiv"><div id="ITNoteLink1" className="Menu1Link"><Link to="/ITNotes">1.建立GCP</Link></div></div> 
+        <div id="ITNote" className="Menu1LinkDiv"><div id="ITNoteLink1" className="Menu1Link"><Link to="/ITNotes/:note">1.建立GCP</Link></div></div> 
         <div className="Menu1LinkDiv"><div className="Menu1Link"></div></div>
         <div className="Menu1LinkDiv"><div className="Menu1Link"></div></div>
         <div className="Menu1LinkDiv"><div className="Menu1Link"></div></div>
@@ -72,7 +72,7 @@ constructor(props) {
         <div id="Menu1" onClick={(e)=>{e.stopPropagation()}} className="text-center">
            <div id="Index" className="Menu1LinkDiv"><div style={{fontFamily: "emoji"}}>{this.state.Func}</div></div>
            {Menu1Link}
-           <div id="ITNote"><div style={{fontFamily: "cursive"}}>作者：ＤＴＷ</div></div>
+           <div id="ITNote"><div style={{fontFamily: "cursive",float:"right",width:"100%",whiteSpace: "nowrap"}}>作者：ＤＴＷ</div></div>
         </div>
         <div id="Menu2" onClick={(e)=>{this.ShowMenu(e,2)}}><span> &equiv;</span> </div>
       </div>
@@ -81,10 +81,14 @@ constructor(props) {
   ShowMenu(event,show){ // 定義changeName
     this.setState({
       ShowMenu:show==1?false : !this.state.ShowMenu },function(){
-        if(this.state.ShowMenu)
-         document.getElementById('Menu1').style.marginLeft='0%'
-        else
-          document.getElementById('Menu1').style.marginLeft='-36.6%'
+        if(this.state.ShowMenu){
+          document.getElementById('Menu').style.width='100%'
+          document.getElementById('Menu1').style.marginLeft='0%'
+        }
+        else{
+          document.getElementById('Menu1').style.marginLeft='-39%'
+          setTimeout(function(){document.getElementById('Menu').style.width='auto'},300)//防止選單調整大小抽動
+      }
       }
     );
     if(event!=null)
