@@ -5,4 +5,4 @@ var Prod = {
     P_API : "https://pythonapi.trueequal.one/"
 }
 
-global.constants =process.env.env == process.env.dev? dev: Prod
+global.constants =process.env.NODE_ENV == "development" ? dev: Prod

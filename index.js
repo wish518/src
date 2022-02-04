@@ -5,16 +5,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Route,Link,Routes } from 'react-router-dom';
+import './Css/Common.css';
+import { BrowserRouter, Route ,Routes,useParams } from 'react-router-dom';
 import './JS/config.js'
 import Home from './component/Home';
 import ITNotes from './component/ITNotes';
-
+global.Env= process.env
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
         <Route index element={<Home />} />
-        <Route path="ITNotes" element={<ITNotes />}/>
+        <Route path="/ITNotes/:note" element={<ITNotes />}/>
     </Routes>
   </BrowserRouter>
   ,document.getElementById('root')
