@@ -54,7 +54,7 @@ constructor(props) {
     {
       Menu1Link=(
       <div id="Menu1Link">
-        <div id="ITNote" className="Menu1LinkDiv"><div id="ITNoteLink1" className="Menu1Link"><Link to="/ITNotes/:note">1.建立GCP</Link></div></div> 
+        <div id="ITNote" className="Menu1LinkDiv"><div id="ITNoteLink1" className="Menu1Link"><Link to="/ITNotes/Build">1.建立GCP</Link></div></div> 
         <div className="Menu1LinkDiv"><div className="Menu1Link"></div></div>
         <div className="Menu1LinkDiv"><div className="Menu1Link"></div></div>
         <div className="Menu1LinkDiv"><div className="Menu1Link"></div></div>

@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class ShowImg extends Component{
   constructor(props) {
     super(props);
-   console.log(props)
   }
   componentDidMount(){
   }

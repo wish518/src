@@ -3,6 +3,7 @@
     background-size: 100% 100%;
     background-repeat:no-repeat;
     height: 100%;
+    overflow-y: scroll;
   }
   #Contain{
     padding: 30px;
@@ -18,10 +19,14 @@
   list-style: none;
   font-family: cursive;
   font-size: 20px;
+  margin-bottom: 15px;
 }
 #Contain li div{
   padding: 0px 25px;
 }
 #Contain li img{
   width: 100%;
+}
+#Contain li p{
+  margin-top: 5px;
 }
