@@ -115,7 +115,7 @@ html,body,#root,#MainForm{
 .Menu1Link{
   border-radius:10px 10px 0px 10px;
   background: radial-gradient(black, transparent) no-repeat;
-  background-size:100%;
+  /*background-size:100%;*/
   width: 80%;
   background-position: right;
   float: right;
@@ -127,4 +127,13 @@ html,body,#root,#MainForm{
   -o-transition: background-size 1s;
   -ms-transition: background-size 1s;
   transition:background-size 1s;
+  background-size:0%
 }
+
+.MenuLevel1{
+  background-size:100%
+}
+/*
+.MenuLevel2,.MenuLevel3{
+  background-size:0%
+}*/
