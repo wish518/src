@@ -21,7 +21,7 @@ constructor(props) {
     {
       Menu1Link=(
       <div id="Menu1Link">
-        <div id="ITNote" className="Menu1LinkDiv"><div id="ITNoteLink1" className="Menu1Link" onClick={()=>{this.ITNoteAction("ITNoteLink1",'ITNotes')}}>IT筆記</div></div> 
+        <div className="Menu1LinkDiv"><div id="ITNoteLink1" className="Menu1Link MenuLevel1" onClick={()=>{this.ITNoteAction("ITNoteLink1",'ITNotes','MenuLevel2')}}>IT筆記</div></div> 
         <div className="Menu1LinkDiv"><div className="Menu1Link"></div></div>
         <div className="Menu1LinkDiv"><div className="Menu1Link"></div></div>
         <div className="Menu1LinkDiv"><div className="Menu1Link"></div></div>
@@ -38,7 +38,7 @@ constructor(props) {
     {
       Menu1Link=(
       <div id="Menu1Link">
-        <div id="ITNote" className="Menu1LinkDiv"><div id="ITNoteLink1" className="Menu1Link" onClick={()=>{this.ITNoteAction("ITNoteLink1",'BuildNote')}}>網站的建立</div></div> 
+        <div className="Menu1LinkDiv"><div id="ITNoteLink1" className="Menu1Link MenuLevel2" onClick={()=>{this.ITNoteAction("ITNoteLink1",'BuildNote','MenuLevel3')}}>網站的建立</div></div> 
         <div className="Menu1LinkDiv"><div className="Menu1Link"></div></div>
         <div className="Menu1LinkDiv"><div className="Menu1Link"></div></div>
         <div className="Menu1LinkDiv"><div className="Menu1Link"></div></div>
@@ -54,8 +54,8 @@ constructor(props) {
     {
       Menu1Link=(
       <div id="Menu1Link">
-        <div id="ITNote" className="Menu1LinkDiv"><div id="ITNoteLink1" className="Menu1Link"><Link to="/ITNotes/Build">1.建立GCP</Link></div></div> 
-        <div id="ITNote" className="Menu1LinkDiv"><div id="ITNoteLink1" className="Menu1Link"><Link to="/ITNotes/Build">2.搞定Apache</Link></div></div> 
+       <div className="Menu1LinkDiv"><div id="ITNoteLink1" className="Menu1Link MenuLevel3"><Link to="/ITNotes/Build">1.建立GCP</Link></div></div> 
+        <div className="Menu1LinkDiv"><div id="ITNoteLink2" className="Menu1Link MenuLevel3"><Link to="/ITNotes/Apache">2.搞定Apache</Link></div></div> 
         <div className="Menu1LinkDiv"><div className="Menu1Link"></div></div>
         <div className="Menu1LinkDiv"><div className="Menu1Link"></div></div>
         <div className="Menu1LinkDiv"><div className="Menu1Link"></div></div>
@@ -97,13 +97,15 @@ constructor(props) {
     if(event!=null)
       event.stopPropagation();
   }
-  ITNoteAction(ID,Func){ 
+  ITNoteAction(ID,Func,Class){ 
     var vm = this;
+
     if(document.getElementById(ID)!=null){
       document.getElementById(ID).style.backgroundSize='0%'
       setTimeout(function(){
-        document.getElementById(ID).style.backgroundSize='100%';
         vm.setState({Func :Func});
+        for(var i =0 ;i< document.getElementsByClassName(Class).length ; i++)
+          document.getElementsByClassName(Class)[i].style.backgroundSize='100%'
       }, 1000);
     }
   }
