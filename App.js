@@ -63,24 +63,45 @@ constructor(props) {
         <div className="Menu1LinkDiv"><div className="Menu1Link Menu1LinkTran"></div></div>
         <div className="Menu1LinkDiv"><div className="Menu1Link Menu1LinkTran"></div></div>
         <div className="Menu1LinkDiv"><div className="Menu1Link Menu1LinkTran"></div></div>
-        <div className="Menu1LinkDiv" onClick={()=>{this.ITNoteAction("",'Index','Index','MenuLevel1')}}><div className="MenuBack">&#8617;<span>回上一層</span> </div></div>
+        <div className="Menu1LinkDiv" onClick={()=>{this.ITNoteAction("",'Index','Index','MenuLevel1','MenuLevel2')}}><div className="MenuBack">&#8617;<span>回上一層</span> </div></div>
       </div>);
     }
     else if(this.state.Func == "GCP")
     {
-      Menu1Link=(
-      <div>
-       <div className="Menu1LinkDiv"><div id="ITNoteLink1" className="Menu1Link Menu1LinkTran MenuLevel3"><a href="/ITNotes/GCP/Build">1.建立GCP</a></div></div> 
-        <div className="Menu1LinkDiv"><div id="ITNoteLink2" className="Menu1Link Menu1LinkTran MenuLevel3"><a href="/ITNotes/GCP/Apache">2.搞定Apache</a></div></div> 
-        <div className="Menu1LinkDiv"><div className="Menu1Link Menu1LinkTran"></div></div>
-        <div className="Menu1LinkDiv"><div className="Menu1Link Menu1LinkTran"></div></div>
-        <div className="Menu1LinkDiv"><div className="Menu1Link Menu1LinkTran"></div></div>
-        <div className="Menu1LinkDiv"><div className="Menu1Link Menu1LinkTran"></div></div>
-        <div className="Menu1LinkDiv"><div className="Menu1Link Menu1LinkTran"></div></div>
-        <div className="Menu1LinkDiv"><div className="Menu1Link Menu1LinkTran"></div></div>
-        <div className="Menu1LinkDiv"><div className="Menu1Link Menu1LinkTran"></div></div>
-        <div className="Menu1LinkDiv" onClick={()=>{this.ITNoteAction("",'ITNotes','IT筆記','MenuLevel2')}}><div className="MenuBack">&#8617;<span>回上一層</span> </div></div>
-      </div>);
+      let Level3 =Array(9);
+      for(var i=0;i<9;i++){
+        if(i==0)
+          Level3[0]=(<div className="Menu1LinkDiv"><div id="ITNoteLink1" className="Menu1Link Menu1LinkTran MenuLevel3"><a href="/ITNotes/GCP/Build">1.建立GCP</a></div></div>) 
+        else if(i==1){
+          Level3[1]=(<div className="Menu1LinkDiv"><div id="ITNoteLink2" className="Menu1Link Menu1LinkTran MenuLevel3"><a href="/ITNotes/GCP/Apache">2.搞定Apache</a></div></div>  ) 
+        }
+        else
+          Level3[i]=(<div className="Menu1LinkDiv"><div className="Menu1Link Menu1LinkTran"></div></div>)
+      }
+      Menu1Link =(
+        <div>
+           {Level3[0]}
+           {Level3[1]}
+           {Level3[2]}
+           {Level3[3]}
+           {Level3[4]}
+           {Level3[5]}
+           {Level3[6]}
+           {Level3[7]}
+           {Level3[8]}
+          <div className="Menu1LinkDiv" onClick={()=>{this.ITNoteAction("",'ITNotes','IT筆記','MenuLevel2','MenuLevel3')}}><div className="MenuBack">&#8617;<span>回上一層</span> </div></div>
+        </div>
+      )
+     /*
+      Menu1Link =( 
+        <div className="Menu1LinkDiv"><div id="ITNoteLink1" className="Menu1Link Menu1LinkTran MenuLevel3"><a href="/ITNotes/GCP/Build">1.建立GCP</a></div></div> 
+        )
+        Menu1Link =( 
+          <div>
+             {Menu1Link}
+             <div className="Menu1LinkDiv"><div id="ITNoteLink1" className="Menu1Link Menu1LinkTran MenuLevel3"><a href="/ITNotes/GCP/Build">1.建立GCP</a></div></div> 
+          </div>
+          )*/
     }
 
     return(
@@ -115,7 +136,7 @@ constructor(props) {
     if(event!=null)
       event.stopPropagation();
   }
-  ITNoteAction(ID,Func,FuncName,Class){ 
+  ITNoteAction(ID,Func,FuncName,Class,thisClass){ 
     var vm = this;
 
     if(document.getElementById(ID)!=null){
@@ -131,6 +152,12 @@ constructor(props) {
     else
     {
       //回上一層時，將backgroundSize歸0 並拿掉Menu1LinkTran不觸發動畫
+      for(var i =0 ;i< document.getElementsByClassName(thisClass).length ; i++){
+        document.getElementsByClassName(thisClass)[i].classList.remove("Menu1LinkTran");
+        document.getElementsByClassName(thisClass)[i].style.backgroundSize='0%'
+        document.getElementsByClassName(thisClass)[i].classList.add("Menu1LinkTran");
+      }  
+
       vm.setState({Func :Func,FuncName :FuncName},function(){
         for(var i =0 ;i< document.getElementsByClassName(Class).length ; i++){
            document.getElementsByClassName(Class)[i].classList.remove("Menu1LinkTran");
