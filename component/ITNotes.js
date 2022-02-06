@@ -13,7 +13,8 @@ class ITNotes extends Component{
    this.state=({
       src:"", NoteHtml:"",NoteShowed:false
     })
-
+    
+    //測試內文 需mark以下 Start
     fetch(global.constants.P_API+"/GetPageSet", {method: "post",body: JSON.stringify({Note:note}), headers: {'Content-Type':'application/json'}}) 
     .then(res => res.json()) 
     .then(data => {
@@ -21,13 +22,14 @@ class ITNotes extends Component{
           document.title = data.Title;
           
           this.setState({NoteHtml:data.html})
-          //vm.forceUpdate()
+          vm.forceUpdate()
        }
     })
     .catch(e => {
       console.log(e)
     })
-    
+    //測試內文 END
+
    this.ShowImg = this.ShowImg.bind(this)
   }
   componentDidUpdate(){//第一次渲染完成
@@ -54,30 +56,41 @@ class ITNotes extends Component{
       return(
        <div  id="ITNoteMain" className="ITNotes"> 
            <div id="Contain">
-                <h1 className="title">建立GCP</h1>
-                { ReactHtmlParser(this.state.NoteHtml) }
-                {/* <div dangerouslySetInnerHTML={{__html: this.state.NoteHtml}}></div> */}
-                {/* <ul>
-                   <li><b>1.要建立GCP，必先進入GCP網頁進行操作</b>
-                      <div>進入<a target="_blank" href="https://cloud.google.com/gcp/?utm_source=google&utm_medium=cpc&utm_campaign=japac-AU-all-en-dr-bkwsrmkt-all-all-trial-e-dr-1009882&utm_content=text-ad-none-none-DEV_c-CRE_540822681061-ADGP_Hybrid%20%7C%20BKWS%20-%20EXA%20%7C%20Txt%20~%20GCP%20~%20General_cloud%20-%20platform-KWID_43700061083014006-aud-970366092687%3Akwd-87853815&userloc_9040379-network_g&utm_term=KW_gcp&gclid=Cj0KCQiA9OiPBhCOARIsAI0y71BR0oNYf1Si7G-WlOURrGfUbnOuBNfsxt6JKpdT1INx6rtouTgIX2saAklQEALw_wcB&gclsrc=aw.ds">Google Cloud Platform</a>頁面的一陣操作下，選擇<span className='red'>Computer Engine</span></div>
+                <div dangerouslySetInnerHTML={{__html: this.state.NoteHtml}}></div>
+                {/* { ReactHtmlParser(this.state.NoteHtml) } */}
+                {/* <h1 className="title">搞定Apache</h1>
+                <ul>
+                   <li><b>1.遠端進上篇建立的虛擬機器裡</b><span class="comment"><br/>(這邊虛擬主機為作業系統為Ubuntu 20.04.3 LTS)</span>
+                       <img src="https://i.imgur.com/LyK06gq.jpg" class="img"/>
                    </li>
-                   <li><b>2.建立執行個體</b>
-                      <div>進入控制台，首點建立執行個體<img src="https://lh3.google.com/u/0/d/1qJCr8lhGeP-h9gamB5x8WwI7YMXLtrd9=w1919-h936-iv1" onClick={(event)=>{this.ShowImg(event)}}/></div>
+                   <li><b>2.啟用防火牆及安裝Apache</b>
+                        <div>開局執行下列指令：<br/>
+                           <span class="red">更新存儲庫</span><span class="command">$ sudo apt update</span> 
+                           <span class="red">安裝Apache</span><br/><span class="comment">(安裝會提示訊息...輸入Y就是了)</span>
+                           <span class="command">$ sudo apt install apache2</span> 
+                           <span class="red">添加防火牆規則</span><br/>
+                           允許SSH 
+                           <span class="command">$ sudo ufw allow OpenSSH</span> 
+                           允許Apache 
+                           <span class="command">$ sudo ufw allow in "Apache Full"</span> 
+                        </div>
                     </li>
-                   <li><b>3.來捏執行個體囉~</b>
-                       <div>依照需求及預算，像是捏模組一樣建立執行個體
-                          <p>a.區域建議選台灣，畢竟伺服器在台灣總會感覺比較快，機房出事也可以先看到新聞</p>
-                          <p>b.機器設定依照個人需求調整，如果錢很多也可以直接配置拉滿</p>
-                          <img src="https://lh5.googleusercontent.com/rsQ2Q3GLuJkjRGGb_YNUJNj4fh44k3DCTWLjGl_JV3TC5vZFF_1tbbtRDExdaRa4lFOWS3OOKxkbZBi47jgL=w1919-h936-rw" onClick={(event)=>{this.ShowImg(event)}}/>
-                          <p>c.需要注意的是<span className='red'>防火牆選項需勾選「允許 HTTP 流量」及「允許 HTTPS 流量」</span>，未勾選是無法從外部參訪的</p>
-                          <img src="https://lh4.googleusercontent.com/4zgA-VjKp432QOplBODKtFwW8RgQ9hxo1d-Ky4FmxeRHejazujZA7l2J15FfekmMNGaS_ns2zAlDhvka_AkV=w1919-h936-rw" onClick={(event)=>{this.ShowImg(event)}}/>
+                   <li><b>3.測試Apache是否正常運行</b>
+                       <div>在瀏覽器輸入GCP給的虛擬機外部IP，即可顯示Apache預設網頁
+                          <img src="https://i.imgur.com/k0pcknR.jpg" class="img" />
                         </div>
                    </li>
-                   <li><b>4.完成建立</b>
-                       <div>按下建立後，就可以看到已經有新建的虛擬機器(VM)執行個體，就表示你完成建立GCP，完成建立網站中最簡單的流成，開心~
-                          <p></p>
-                          <img src="https://lh3.googleusercontent.com/lS_MA2o4HVljZXZvszxbaNhl65AyDd3WgF1DruwF9x6t0Nppu-uSPV2Sb_2uQyZu1ks-Cg-UHYC5iplOfvx0=w1919-h936-rw" onClick={(event)=>{this.ShowImg(event)}}/>  
-                        </div>
+                   <li ><b>無法顯示網也可能的原因</b>
+                       <ul class="comment">
+                          <li>建立虛擬主機時沒有勾選「允許 HTTP 流量」及「允許 HTTPS 流量」詳請請參考<a href="/ITNotes/Build">建立GCP</a>第三步</li>
+                          <li>防火牆沒有啟用允許Apache，請參考第二步</li>
+                          <li>非上述問題，就使用大絕招重啟Apache服務，用神秘力量解決奇怪問題
+                           <span class="command">$ sudo /etc/init.d/apache2 restart</span> 
+                           </li>
+                          <li>還還還是不行的話，查看apache錯誤LOG，對症下藥
+                            <span class="command">$ cat /var/log/apache2/error.log</span> 
+                           </li>
+                       </ul>
                    </li>
                 </ul> */}
            </div>

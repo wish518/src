@@ -31,3 +31,18 @@
 #Contain li p{
   margin-top: 5px;
 }
+.comment{
+  font-size: 18px;
+}
+.comment li{
+  font-size: 18px;
+  list-style: decimal !important;
+}
+.command{
+  display: block;
+  background-color: black;
+  color: white;
+  font-family: initial;
+  font-size: 20px;
+  margin-bottom: 10px;
+}

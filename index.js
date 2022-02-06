@@ -16,6 +16,7 @@ ReactDOM.render(
     <Routes>
         <Route index element={<Home />} />
         <Route path="/ITNotes/:note" element={<ITNotes />}/>
+        <Route path="/ITNotes/:level/:note" element={<ITNotes />}/>
     </Routes>
   </BrowserRouter>
   ,document.getElementById('root')
