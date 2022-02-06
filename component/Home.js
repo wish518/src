@@ -6,11 +6,13 @@ class Home extends Component{
   componentDidMount(){
      //alert('GOGO')
       document.getElementById('Menu').style.display="none"
+      document.getElementById('Menu2').style.display="none"
      setTimeout(function(){
        document.getElementById('Mask').style.backgroundColor="transparent"
      }, 3600);
      setTimeout(function(){
        document.getElementById('Menu').style.display="block"
+       document.getElementById('Menu2').style.display="block"
      }, 5200);
   }
  render(){

@@ -21,7 +21,7 @@ constructor(props) {
     {
       Menu1Link=(
       <div id="Menu1Link">
-        <div id="ITNote" className="Menu1LinkDiv"><div id="ITNoteLink1" className="Menu1Link" onClick={()=>{this.ITNoteAction("ITNoteLink1",'ITNotes')}}>IT筆記</div></div> 
+        <div className="Menu1LinkDiv"><div id="ITNoteLink1" className="Menu1Link MenuLevel1" onClick={()=>{this.ITNoteAction("ITNoteLink1",'ITNotes','MenuLevel2')}}>IT筆記</div></div> 
         <div className="Menu1LinkDiv"><div className="Menu1Link"></div></div>
         <div className="Menu1LinkDiv"><div className="Menu1Link"></div></div>
         <div className="Menu1LinkDiv"><div className="Menu1Link"></div></div>
@@ -38,7 +38,7 @@ constructor(props) {
     {
       Menu1Link=(
       <div id="Menu1Link">
-        <div id="ITNote" className="Menu1LinkDiv"><div id="ITNoteLink1" className="Menu1Link" onClick={()=>{this.ITNoteAction("ITNoteLink1",'BuildNote')}}>網站的建立</div></div> 
+        <div className="Menu1LinkDiv"><div id="ITNoteLink1" className="Menu1Link MenuLevel2" onClick={()=>{this.ITNoteAction("ITNoteLink1",'BuildNote','MenuLevel3')}}>網站的建立</div></div> 
         <div className="Menu1LinkDiv"><div className="Menu1Link"></div></div>
         <div className="Menu1LinkDiv"><div className="Menu1Link"></div></div>
         <div className="Menu1LinkDiv"><div className="Menu1Link"></div></div>
@@ -54,8 +54,8 @@ constructor(props) {
     {
       Menu1Link=(
       <div id="Menu1Link">
-        <div id="ITNote" className="Menu1LinkDiv"><div id="ITNoteLink1" className="Menu1Link"><Link to="/ITNotes/Build">1.建立GCP</Link></div></div> 
-        <div className="Menu1LinkDiv"><div className="Menu1Link"></div></div>
+       <div className="Menu1LinkDiv"><div id="ITNoteLink1" className="Menu1Link MenuLevel3"><Link to="/ITNotes/Build">1.建立GCP</Link></div></div> 
+        <div className="Menu1LinkDiv"><div id="ITNoteLink2" className="Menu1Link MenuLevel3"><Link to="/ITNotes/Apache">2.搞定Apache</Link></div></div> 
         <div className="Menu1LinkDiv"><div className="Menu1Link"></div></div>
         <div className="Menu1LinkDiv"><div className="Menu1Link"></div></div>
         <div className="Menu1LinkDiv"><div className="Menu1Link"></div></div>
@@ -68,12 +68,14 @@ constructor(props) {
     }
 
     return(
+      <div>
       <div id="Menu" onClick={(e)=>{this.ShowMenu(null,1)}}> 
         <div id="Menu1" onClick={(e)=>{e.stopPropagation()}} className="text-center">
            <div id="Index" className="Menu1LinkDiv"><div style={{fontFamily: "emoji"}}>{this.state.Func}</div></div>
            {Menu1Link}
            <div id="ITNote"><div style={{fontFamily: "cursive",float:"right",width:"100%",whiteSpace: "nowrap"}}>作者：ＤＴＷ</div></div>
         </div>
+      </div>
         <div id="Menu2" onClick={(e)=>{this.ShowMenu(e,2)}}><span> &equiv;</span> </div>
       </div>
     );
@@ -82,25 +84,28 @@ constructor(props) {
     this.setState({
       ShowMenu:show==1?false : !this.state.ShowMenu },function(){
         if(this.state.ShowMenu){
-          document.getElementById('Menu').style.width='100%'
           document.getElementById('Menu1').style.marginLeft='0%'
+          document.getElementById('Menu2').style.marginLeft='34%'
         }
         else{
-          document.getElementById('Menu1').style.marginLeft='-39%'
-          setTimeout(function(){document.getElementById('Menu').style.width='auto'},300)//防止選單調整大小抽動
+          document.getElementById('Menu1').style.marginLeft='-36%'
+          document.getElementById('Menu2').style.marginLeft='-2%'
+          //setTimeout(function(){document.getElementById('Menu').style.width='auto'},300)//防止選單調整大小抽動
       }
       }
     );
     if(event!=null)
       event.stopPropagation();
   }
-  ITNoteAction(ID,Func){ 
+  ITNoteAction(ID,Func,Class){ 
     var vm = this;
+
     if(document.getElementById(ID)!=null){
       document.getElementById(ID).style.backgroundSize='0%'
       setTimeout(function(){
-        document.getElementById(ID).style.backgroundSize='100%';
         vm.setState({Func :Func});
+        for(var i =0 ;i< document.getElementsByClassName(Class).length ; i++)
+          document.getElementsByClassName(Class)[i].style.backgroundSize='100%'
       }, 1000);
     }
   }
