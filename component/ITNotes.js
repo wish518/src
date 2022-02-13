@@ -58,40 +58,54 @@ class ITNotes extends Component{
            <div id="Contain">
                 <div dangerouslySetInnerHTML={{__html: this.state.NoteHtml}}></div>
                 {/* { ReactHtmlParser(this.state.NoteHtml) } */}
-                {/* <h1 className="title">搞定Apache</h1>
+                {/* <h1 class="title">自動Pull排成</h1>
                 <ul>
-                   <li><b>1.遠端進上篇建立的虛擬機器裡</b><span class="comment"><br/>(這邊虛擬主機為作業系統為Ubuntu 20.04.3 LTS)</span>
-                       <img src="https://i.imgur.com/LyK06gq.jpg" class="img"/>
+                   <li>寫這篇目的是讓每次發版不用連虛擬主機進行Pull，達成在本機Push，Server就會自動更新目的</li>
+                          
+                   <li><b>1.安裝排成功能</b>
+                     <div>
+                        <span class="command">$ sudo apt install expect</span>
+                     </div>
                    </li>
-                   <li><b>2.啟用防火牆及安裝Apache</b>
-                        <div>開局執行下列指令：<br/>
-                           <span class="red">更新存儲庫</span><span class="command">$ sudo apt update</span> 
-                           <span class="red">安裝Apache</span><br/><span class="comment">(安裝會提示訊息...輸入Y就是了)</span>
-                           <span class="command">$ sudo apt install apache2</span> 
-                           <span class="red">添加防火牆規則</span><br/>
-                           允許SSH 
-                           <span class="command">$ sudo ufw allow OpenSSH</span> 
-                           允許Apache 
-                           <span class="command">$ sudo ufw allow in "Apache Full"</span> 
+                   <li><b>2.寫排程腳本</b>
+                        <div>
+                           <span class="red">a.建立腳本Log檔案</span><br/>
+                           <span class="comment">可以依喜好更改檔名</span>
+                           <span class="command">$ sudo vim Log.txt</span>
+                           <span class="command">$ sudo vim trace.txt</span><br/>
+
+                           <span class="red">b.建立腳本</span><br/>
+                           <span class="comment">可以依喜好更改檔名</span>
+                           <span class="command">$ sudo vim Git.sh</span>
+                           <span class="red">調整並複製以下設定</span><br/>
+                           <span class="txt"><span class="annotation">#使用expect編譯</span><br/>
+                           #!/usr/bin/expect -f <br/>
+                           <span class="annotation">#指定LOG路徑</span><br/>
+                              log_file -noappend /var/www/html/Log.txt<br/>
+                              <span class="annotation">#在指定路徑下執行fetch及pull指令</span><br/>
+                              spawn sudo git --git-dir=/var/www/html/PythonAPI/.git fetch<br/>
+                              spawn sudo git --git-dir=/var/www/html/PythonAPI/.git pull<br/>
+                              <span class="annotation">#宣告DATE 為執行時間參數</span><br/>
+                              set DATE [exec date +%Y%m%d,%H%M%S]<br/>
+                              <span class="annotation">#處理回傳訊息</span><br/>
+                              expect {<br/>
+                                      <span class="annotation">#若回傳Already up to date.，則在Log上寫[時間]+PythonAPI Already up to date.</span><br/>
+                                      "Already up to date." {send_log "$DATE : PythonAPI Already up to date.\n"}<br/>
+                                      <span class="annotation">#回傳其他訊息，則在Log上寫[時間]+PythonAPI Get Pull</span><br/>
+                                       "#" { send_log "$DATE : PythonAPI Get Pull \n"}<br/>
+                              }<br/>
+                              
+                              <span class="annotation">#多個Git自動Pull</span><br/>
+                              spawn sudo git --git-dir=/var/www/html/dtw/.git fetch<br/>
+                              spawn sudo git --git-dir=/var/www/html/dtw/.git pull<br/>
+                              expect {<br/>
+                                  "Already up to date." {send_log "$DATE : dtw Already up to date. \n"}<br/>
+                                  "#" { send_log "$DATE : dtw Get Pull \n"}<br/>
+                              }<br/>
+                              log_file;<br/>
+                           </span>
                         </div>
                     </li>
-                   <li><b>3.測試Apache是否正常運行</b>
-                       <div>在瀏覽器輸入GCP給的虛擬機外部IP，即可顯示Apache預設網頁
-                          <img src="https://i.imgur.com/k0pcknR.jpg" class="img" />
-                        </div>
-                   </li>
-                   <li ><b>無法顯示網也可能的原因</b>
-                       <ul class="comment">
-                          <li>建立虛擬主機時沒有勾選「允許 HTTP 流量」及「允許 HTTPS 流量」詳請請參考<a href="/ITNotes/Build">建立GCP</a>第三步</li>
-                          <li>防火牆沒有啟用允許Apache，請參考第二步</li>
-                          <li>非上述問題，就使用大絕招重啟Apache服務，用神秘力量解決奇怪問題
-                           <span class="command">$ sudo /etc/init.d/apache2 restart</span> 
-                           </li>
-                          <li>還還還是不行的話，查看apache錯誤LOG，對症下藥
-                            <span class="command">$ cat /var/log/apache2/error.log</span> 
-                           </li>
-                       </ul>
-                   </li>
                 </ul> */}
            </div>
            {ShowImgDiv}

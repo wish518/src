@@ -12,7 +12,7 @@ constructor(props) {
    .then(res => res.json()) 
    .then(data => {
       if(data.length>0){    
-        console.log(data)
+        //console.log(data)
         this.setState({MenuIndex:data})
       }
    })
@@ -83,7 +83,7 @@ constructor(props) {
     }
     else
     {
-      console.log(this.state.MenuIndex)
+      //console.log(this.state.MenuIndex)
       let Level3 =Array(9);
       let vm = this;
       let MenuData = this.state.MenuIndex.filter(function(item){return item.Node == vm.state.Func});
