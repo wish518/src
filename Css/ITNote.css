@@ -31,3 +31,38 @@
 #Contain li p{
   margin-top: 5px;
 }
+.comment{
+  font-size: 18px;
+}
+ul.comment li{
+  list-style: disc;
+}
+.comment li{
+  font-size: 18px;
+  list-style: disc !important;
+}
+.command{
+  display: block;
+  background-color: black;
+  color: white;
+  font-family: initial;
+  font-size: 20px;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+  word-break: normal;
+}
+.txt{
+  display: block;
+  background-color: white;
+  color: black;
+  font-family: initial;
+  font-size: 20px;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+  word-break: normal;
+  max-height: 300px;
+  overflow-y: auto;
+}
+.annotation{
+  color: green;
+}

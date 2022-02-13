@@ -122,14 +122,19 @@ html,body,#root,#MainForm{
   color: lightgoldenrodyellow;
   font-family: cursive;
   white-space:nowrap;
+  background-size:0%
+}
+.Menu1LinkTran{
   -webkit-transition: background-size 1s;
   -moz-transition:background-size 1s;
   -o-transition: background-size 1s;
   -ms-transition: background-size 1s;
   transition:background-size 1s;
-  background-size:0%
 }
-
+.MenuBack{
+  font-family: cursive;
+  background: honeydew;
+}
 .MenuLevel1{
   background-size:100%
 }
