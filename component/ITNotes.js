@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import '../Css/ITNote.css';
 import App from '../App';
 import ShowImg from "./Common/ShowIImg";
+import BlueNotes from "./Common/Notes";
+import RedNotes from "./Common/Notes";
 import ReactHtmlParser from 'react-html-parser';
 
 class ITNotes extends Component{
@@ -109,6 +111,8 @@ class ITNotes extends Component{
                 </ul> */}
            </div>
            {ShowImgDiv}
+           <BlueNotes id="BlueNote"/>  
+           <RedNotes id="RedNote"/>  
            <App/>
        </div>  
       );
