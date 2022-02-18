@@ -62,6 +62,7 @@ ul.comment li{
   word-break: normal;
   max-height: 300px;
   overflow-y: auto;
+  padding-left: 2px;
 }
 .annotation{
   color: green;
@@ -91,19 +92,22 @@ ul.comment li{
   width: 280px;
   clip-path: polygon(0% 0%, 100% 0, 100% 50%, 80% 100%, 0% 100%);
   border: 0;
-  padding: 10px 36px;
+  padding: 5px 30px 5px 35px;
+  height: 240px;
 }
 #BlueNote .Note{
   background: lightskyblue;
-  height: 240px;
 }
 #RedNote .Note{
   background: lightpink;;
-  height: 240px;
 }
 #BlueNote h5::before{
   content:"補充說明";
 }
 #RedNote h5::before{
   content:"注意事項";
+}
+#NoteContent{
+  height: 60%;
+  overflow-y: auto;
 }

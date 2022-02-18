@@ -13,7 +13,8 @@ class ITNotes extends Component{
    let path= window.location.pathname.split('/')
    let note = path[path.length-1];
    this.state=({
-      src:"", NoteHtml:"",NoteShowed:false
+      src:"", NoteHtml:"", BlueNote:"", RedNote:"",
+      NoteShowed:false
     })
     
     //測試內文 需mark以下 Start
@@ -22,8 +23,10 @@ class ITNotes extends Component{
     .then(data => {
        if(data!=""){    
           document.title = data.Title;
-          
-          this.setState({NoteHtml:data.html})
+          console.log(data)
+          this.setState({NoteHtml:data.html,
+                         BlueNote:data.BlueNote,
+                         RedNote:data.RedNote})
           vm.forceUpdate()
        }
     })
@@ -55,6 +58,7 @@ class ITNotes extends Component{
        }
        else
          ShowImgDiv = ""
+
       return(
        <div  id="ITNoteMain" className="ITNotes"> 
            <div id="Contain">
@@ -111,8 +115,8 @@ class ITNotes extends Component{
                 </ul> */}
            </div>
            {ShowImgDiv}
-           <BlueNotes id="BlueNote"/>  
-           <RedNotes id="RedNote"/>  
+           {this.state.BlueNote || '' != ""?(<BlueNotes id="BlueNote" note={this.state.BlueNote}/>):null}
+           {this.state.RedNote || '' != ""?(<RedNotes id="RedNote" note={this.state.RedNote}/>):null}
            <App/>
        </div>  
       );

@@ -57,7 +57,7 @@ html,body,#root,#MainForm{
   pointer-events: none;
 }
 #Menu a{
-  font-family: cursive;
+  font-family: DFKai-sb;
   color: lightgoldenrodyellow;;
   text-decoration:none;
   min-width: 48px;
@@ -74,7 +74,6 @@ html,body,#root,#MainForm{
   display: inline-block;
   border-radius: 30px 35px 30px 30px;
   box-shadow: 3px 6px 2px black;
-  margin-left: -36%;
   transition: margin-left 0.5s;
   -webkit-transition: margin-left 0.5s;
   -moz-transition:margin-left 0.5s;
@@ -86,7 +85,7 @@ html,body,#root,#MainForm{
   position: absolute;
   top:10%;
   height: 100px;
-  width: 36px;
+  width: 46px;
   font-size: 35px;
   text-align: right;
   background-color:lightgoldenrodyellow;
@@ -97,7 +96,6 @@ html,body,#root,#MainForm{
   border-radius: 0px 20px 20px 0px ;
   vertical-align: top;
   display: inline-block;
-  margin-left: -2%;
   z-index: 1000;
   transition: margin-left 0.5s;
   -webkit-transition: margin-left 0.5s;
@@ -120,7 +118,7 @@ html,body,#root,#MainForm{
   background-position: right;
   float: right;
   color: lightgoldenrodyellow;
-  font-family: cursive;
+  font-family: DFKai-sb;
   white-space:nowrap;
   background-size:0%
 }
@@ -132,7 +130,7 @@ html,body,#root,#MainForm{
   transition:background-size 1s;
 }
 .MenuBack{
-  font-family: cursive;
+  font-family: DFKai-sb;
   background: honeydew;
 }
 .MenuLevel1{
