@@ -7,7 +7,8 @@
     padding-bottom: 10px;
   }
   #Contain{
-    padding: 30px;
+    padding: 25px;
+    font-size: 24px;
   }
 .title{
   font-family: DFKai-sb;
@@ -27,12 +28,14 @@
 }
 #Contain li img{
   width: 100%;
+  max-width: 500px;
+  display: block;
 }
 #Contain li p{
   margin-top: 5px;
 }
 .comment{
-  font-size: 18px;
+  font-size: 14px;
 }
 ul.comment li{
   list-style: disc;
@@ -110,4 +113,17 @@ ul.comment li{
 #NoteContent{
   height: 60%;
   overflow-y: auto;
+}
+
+@media(min-width: 1000px) {
+  #Contain{
+    padding: 50px;
+    font-size: 30px;
+  }
+  #Contain li{
+    font-size: 26px;
+  }
+  .comment{
+    font-size: 20px;
+  }
 }
