@@ -142,4 +142,6 @@ html,body,#root,#MainForm{
 }
 .MenuLevel3 a{
   color: black!important;
+  width: 100%;
+  display: block;
 }

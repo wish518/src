@@ -120,6 +120,9 @@ ul.comment li{
     padding: 50px;
     font-size: 30px;
   }
+  ul {
+    padding: 50px;
+  }
   #Contain li{
     font-size: 26px;
   }
