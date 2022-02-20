@@ -39,6 +39,20 @@ constructor(props) {
    this.ITNoteAction = this.ITNoteAction.bind(this)
   }
   componentDidMount(){
+    let event =function(){
+      if(document.getElementById('Menu1').offsetWidth <225){
+        document.getElementById('Menu1').style.marginLeft='-36%'
+        document.getElementById('Menu2').style.marginLeft='-2%'
+      }
+      else {
+        document.getElementById('Menu1').style.marginLeft='-228px'
+        document.getElementById('Menu2').style.marginLeft='-1%'
+      }
+    }
+    window.onresize = function(){
+      event();
+    }
+    event();
   }//第一次渲染完成
   componentDidUpdate(){//渲染完成
     for(var i =0 ;i< document.getElementsByClassName('MenuLevel3').length ; i++){
@@ -130,12 +144,23 @@ constructor(props) {
       ShowMenu:show==1?false : !this.state.ShowMenu },function(){
         if(this.state.ShowMenu){
           document.getElementById('Menu1').style.marginLeft='0%'
-          document.getElementById('Menu2').style.marginLeft='34%'
+          if(document.getElementById('Menu1').offsetWidth <225)
+             document.getElementById('Menu2').style.marginLeft='34%'
+          else 
+            document.getElementById('Menu2').style.marginLeft='221.5px'
+            
           document.getElementById('Menu').style.pointerEvents='auto'
         }
         else{
-          document.getElementById('Menu1').style.marginLeft='-36%'
-          document.getElementById('Menu2').style.marginLeft='-2%'
+          if(document.getElementById('Menu1').offsetWidth <225){
+            document.getElementById('Menu1').style.marginLeft='-36%'
+            document.getElementById('Menu2').style.marginLeft='-2%'
+          }
+          else {
+            document.getElementById('Menu1').style.marginLeft='-228px'
+            document.getElementById('Menu2').style.marginLeft='-1%'
+          }
+
           document.getElementById('Menu').style.pointerEvents='none'
           //setTimeout(function(){document.getElementById('Menu').style.width='auto'},300)//防止選單調整大小抽動
       }
