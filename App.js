@@ -101,7 +101,7 @@ constructor(props) {
       let Level3 =Array(9);
       let vm = this;
       let MenuData = this.state.MenuIndex.filter(function(item){return item.Node == vm.state.Func});
-      for(var i=0;i<9;i++){
+      for(var i=0;i<10;i++){
         let id  = "ITNoteLink" + i
         if(MenuData[i]!=null){
           let className =  "Menu1Link Menu1LinkTran MenuLevel3 "+ MenuData[i].Class
@@ -121,6 +121,7 @@ constructor(props) {
            {Level3[6]}
            {Level3[7]}
            {Level3[8]}
+           {Level3[9]}
           <div className="Menu1LinkDiv" onClick={()=>{this.ITNoteAction("",'ITNotes','IT筆記','MenuLevel2','MenuLevel3')}}><div className="MenuBack">&#8617;<span>回上一層</span> </div></div>
         </div>
       )

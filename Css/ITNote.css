@@ -115,6 +115,33 @@ ul.comment li{
   overflow-y: auto;
 }
 
+#MessageBoard{
+  height: 100%;
+  position: absolute;
+  z-index: 998;
+  width: 65%;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+}
+#MessageBoardTab{
+  background: lightcyan;
+  height: 100px;
+  width: 46px;
+  height: 180px;
+  border: 1px solid black;
+  border-right: 0;
+  margin-right: -1px;
+  z-index: 2;
+}
+#MessageBoardText{
+  background: lightcyan;
+  height: 100%;
+  width: 100%;
+  border-left: 1px solid black;
+}
+
 @media(min-width: 1000px) {
   #Contain{
     padding: 50px;
