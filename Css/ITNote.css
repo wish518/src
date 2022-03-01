@@ -5,6 +5,7 @@
     height: 100%;
     overflow-y: auto;
     padding-bottom: 10px;
+    scrollbar-width: none;
   }
   #Contain{
     padding: 25px;
@@ -115,48 +116,39 @@ ul.comment li{
   overflow-y: auto;
 }
 
-@media(min-width: 1000px) {
-  #Contain{
-    padding: 50px;
-    font-size: 30px;
-  }
-  ul {
-    padding: 50px;
-  }
-  #Contain li{
-    font-size: 26px;
-  }
-  .comment{
-    font-size: 20px;
-  }
-}
-
 #MessageBoard{
   height: 100%;
-  position: absolute;
+  position: fixed;
   z-index: 998;
   width: 65%;
   top: 0;
   right: 0;
   display: flex;
   align-items: center;
+  margin-right: calc(-65% + 34px);
+  transition: margin-right 0.5s;
+  -webkit-transition: margin-right 0.5s;
+  -moz-transition:margin-right 0.5s;
+  -o-transition: margin-right 0.5s;
+  -ms-transition: margin-right 0.5s;
 }
 #MessageBoardTab{
   background: lightcyan;
   height: 100px;
-  width: 46px;
+  width: 36px;
+  min-width: 36px;
   height: 180px;
   border: 0.5px solid black;
   border-right: 0;
   margin-right: -2px;
   z-index: 2;
 }
-#MessageBoardText{
+#MessageBoardDiv{
   background: lightcyan;
   height: 100%;
-  width: 100%;
   border-left: 0.5px solid black;
-  padding: 20px;
+  padding: 15px ;
+  width: 100%;
 }
 #Message{
   overflow-y: auto;
@@ -172,9 +164,32 @@ ul.comment li{
    margin-bottom: 3px;
 
 }
+.messageContant{
+  height: 66px;
+  overflow: hidden;
+}
 .expand{
   width: 100%;
   text-align: center;
-  border-top: 0.5px dotted;
-  margin-top: 3px;
+  font-size: 12px;
+}
+
+
+@media(min-width: 1000px) {
+  #Contain{
+    padding: 50px;
+    font-size: 30px;
+  }
+  ul {
+    padding: 50px;
+  }
+  #Contain li{
+    font-size: 26px;
+  }
+  .comment{
+    font-size: 20px;
+  }
+  #MessageBoardDiv{
+    padding: 20px ;
+  }
 }

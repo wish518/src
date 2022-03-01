@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import './Css/App.css';
 import 'popper.js';
-import { Link } from 'react-router-dom';
 
 class App extends Component{
 constructor(props) { 
    super(props);  
-
    //取得MenuIndex 
    fetch(global.constants.P_API+"/GetMenuIndex ", {method: "post", headers: {'Content-Type':'application/json'}}) 
    .then(res => res.json()) 
@@ -27,7 +25,7 @@ constructor(props) {
       path = index[index.length-2];
       FuncName = '網站的建立'
    }
-   console.log(path)
+   //console.log(path)
    this.state=({
     ShowMenu:false,
     FirstFunc:path ==""?"Index":path,

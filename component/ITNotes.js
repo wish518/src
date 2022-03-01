@@ -4,7 +4,7 @@ import App from '../App';
 import ShowImg from "./Common/ShowIImg";
 import BlueNotes from "./Common/Notes";
 import RedNotes from "./Common/Notes";
-import {MessageBoard} from "./Common/CommonObj";
+import MessageBoard from "./Common/MessageBoard";
 
 class ITNotes extends Component{
   constructor(props) {
@@ -14,6 +14,7 @@ class ITNotes extends Component{
    let note = path[path.length-1];
    this.state=({
       src:"", NoteHtml:"", BlueNote:"", RedNote:"",
+      Func:note,
       NoteShowed:false
     })
     
@@ -51,7 +52,6 @@ class ITNotes extends Component{
       
    }
    render(){
-      console.log('render')
       let ShowImgDiv = "";
       if(this.state.src != "")
       {
@@ -118,7 +118,7 @@ class ITNotes extends Component{
            {this.state.BlueNote || '' != ""?(<BlueNotes id="BlueNote" note={this.state.BlueNote}/>):null}
            {this.state.RedNote || '' != ""?(<RedNotes id="RedNote" note={this.state.RedNote}/>):null}
            <App/>
-           <MessageBoard/>
+           <MessageBoard Func={this.state.Func}/>
        </div>  
       );
    }
