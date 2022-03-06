@@ -23,7 +23,6 @@ constructor(props) {
    let FuncName = "Index";
    if(path!="" && path!="index"){
       path = index[index.length-2];
-      FuncName = '網站的建立'
    }
    //console.log(path)
    this.state=({
@@ -60,6 +59,7 @@ constructor(props) {
   componentWillReceiveProps(){}//路由改變
   render(){
     let Menu1Link = [];
+    var FuncName = this.state.FuncName
     if(this.state.Func == "Index")
     {
       Menu1Link=(
@@ -99,6 +99,7 @@ constructor(props) {
       let vm = this;
       let MenuData = this.state.MenuIndex.filter(function(item){return item.Node == vm.state.Func});
       for(var i=0;i<10;i++){
+        //取得Menu資料
         let id  = "ITNoteLink" + i
         if(MenuData[i]!=null){
           let Level = MenuData[0].Level
@@ -106,19 +107,22 @@ constructor(props) {
           let Func =  MenuData[i].Func
           let Name =  MenuData[i].Name
           if(Level==3)
-            Menu1Link.push(<div className="Menu1LinkDiv"><div id={MenuData[i].Func} className={className}><a href={MenuData[i].Url}>{MenuData[i].Name}</a></div></div>)
+            Menu1Link.push(<div key={"Menu1LinkDiv"+i} className="Menu1LinkDiv"><div id={MenuData[i].Func} className={className}><a href={MenuData[i].Url}>{MenuData[i].Name}</a></div></div>)
           else
-            Menu1Link.push(<div className="Menu1LinkDiv"><div id={MenuData[i].Func} className={className} onClick={()=>{this.ITNoteAction("ITNoteLink1",Func,Name,'MenuLevel3')}}>{MenuData[i].Name}</div></div>)
+            Menu1Link.push(<div key={"Menu1LinkDiv"+i} className="Menu1LinkDiv"><div id={MenuData[i].Func} className={className} onClick={()=>{this.ITNoteAction("ITNoteLink1",Func,Name,'MenuLevel3')}}>{MenuData[i].Name}</div></div>)
         }
         else
-          Menu1Link.push(<div className="Menu1LinkDiv"><div className="Menu1Link Menu1LinkTran"></div></div>)
-
+          Menu1Link.push(<div key={"Menu1LinkDiv"+i} className="Menu1LinkDiv"><div className="Menu1Link Menu1LinkTran"></div></div>)
+        //完成menu資料
         if(i==9 && MenuData[0] != null){
           let Level = MenuData[0].Level
-          if(Level==3)
-            Menu1Link.push(<div className="Menu1LinkDiv" onClick={()=>{this.ITNoteAction("",'ITNotes','IT筆記','MenuLevel2','MenuLevel3')}}><div className="MenuBack">&#8617;<span>回上一層</span> </div></div>)
+          if(Level==3){
+            let prevousData  = this.state.MenuIndex.filter(function(item){return item.Func == vm.state.Func})[0];
+            FuncName = prevousData.Name;
+            Menu1Link.push(<div key={"Menu1LinkDiv"+(i+1)} className="Menu1LinkDiv" onClick={()=>{this.ITNoteAction("",prevousData.Node,prevousData.Node,'MenuLevel2','MenuLevel3')}}><div className="MenuBack">&#8617;<span>回上一層</span> </div></div>)
+          }
           else
-            Menu1Link.push(<div className="Menu1LinkDiv" onClick={()=>{this.ITNoteAction("",'Index','Index','MenuLevel1','MenuLevel2')}}><div className="MenuBack">&#8617;<span>回上一層</span> </div></div>)
+            Menu1Link.push(<div key={"Menu1LinkDiv"+(i+1)} className="Menu1LinkDiv" onClick={()=>{this.ITNoteAction("",'Index','Index','MenuLevel1','MenuLevel2')}}><div className="MenuBack">&#8617;<span>回上一層</span> </div></div>)
         }  
       }
     }
@@ -127,7 +131,7 @@ constructor(props) {
       <div>
       <div id="Menu" onClick={(e)=>{this.ShowMenu(null,1)}}> 
         <div id="Menu1" onClick={(e)=>{e.stopPropagation()}} className="text-center">
-           <div id="Index" className="Menu1LinkDiv"><div style={{fontFamily: "DFKai-sb"}}>{this.state.FuncName}</div></div>
+           <div id="Index" className="Menu1LinkDiv"><div style={{fontFamily: "DFKai-sb"}}>{FuncName}</div></div>
            {Menu1Link}
            <div id="ITNote"><div style={{fontFamily: "cursive",float:"right",width:"100%",whiteSpace: "nowrap"}}>作者：ＤＴＷ</div></div>
         </div>
