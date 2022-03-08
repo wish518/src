@@ -177,10 +177,12 @@ constructor(props) {
       document.getElementById(ID).style.backgroundSize='0%'
        
       setTimeout(function(){
-           vm.setState({Func :Func,FuncName :FuncName});
-        for(var i =0 ;i< document.getElementsByClassName(Class).length ; i++){
-          document.getElementsByClassName(Class)[i].style.backgroundSize='100%'
-        }
+        vm.setState({Func :Func,FuncName :FuncName});
+        setTimeout(function(){
+          for(var i =0 ;i< document.getElementsByClassName(Class).length ; i++){
+             document.getElementsByClassName(Class)[i].style.backgroundSize='100%'
+          }
+        }, 10);
       }, 1000);
     }
     else
