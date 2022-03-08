@@ -5,6 +5,7 @@
     height: 100%;
     overflow-y: auto;
     padding-bottom: 10px;
+    scrollbar-width: none;
   }
   #Contain{
     padding: 25px;
@@ -115,6 +116,66 @@ ul.comment li{
   overflow-y: auto;
 }
 
+#MessageBoard{
+  height: 100%;
+  position: fixed;
+  z-index: 998;
+  width: 65%;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  margin-right: calc(-65% + 34px);
+  transition: margin-right 0.5s;
+  -webkit-transition: margin-right 0.5s;
+  -moz-transition:margin-right 0.5s;
+  -o-transition: margin-right 0.5s;
+  -ms-transition: margin-right 0.5s;
+}
+#MessageBoardTab{
+  background: lightcyan;
+  height: 100px;
+  width: 36px;
+  min-width: 36px;
+  height: 180px;
+  border: 0.5px solid black;
+  border-right: 0;
+  margin-right: -2px;
+  z-index: 2;
+  box-shadow: -5px 5px 7px black;
+}
+#MessageBoardDiv{
+  background: lightcyan;
+  height: 100%;
+  border-left: 0.5px solid black;
+  padding: 15px ;
+  width: 100%;
+}
+#Message{
+  overflow-y: auto;
+}
+.message{
+  border-bottom: 2px solid;
+  margin-bottom: 5px;    
+  white-space: break-spaces;
+}
+.messageUser{
+   font-size: 14px;
+   border-bottom: 0.5px dotted;
+   margin-bottom: 3px;
+
+}
+.messageContant{
+  height: 66px;
+  overflow: hidden;
+}
+.expand{
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+}
+
+
 @media(min-width: 1000px) {
   #Contain{
     padding: 50px;
@@ -128,5 +189,8 @@ ul.comment li{
   }
   .comment{
     font-size: 20px;
+  }
+  #MessageBoardDiv{
+    padding: 20px ;
   }
 }

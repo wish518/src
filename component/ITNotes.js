@@ -4,7 +4,7 @@ import App from '../App';
 import ShowImg from "./Common/ShowIImg";
 import BlueNotes from "./Common/Notes";
 import RedNotes from "./Common/Notes";
-import ReactHtmlParser from 'react-html-parser';
+import MessageBoard from "./Common/MessageBoard";
 
 class ITNotes extends Component{
   constructor(props) {
@@ -14,6 +14,7 @@ class ITNotes extends Component{
    let note = path[path.length-1];
    this.state=({
       src:"", NoteHtml:"", BlueNote:"", RedNote:"",
+      Func:note,
       NoteShowed:false
     })
     
@@ -23,7 +24,7 @@ class ITNotes extends Component{
     .then(data => {
        if(data!=""){    
           document.title = data.Title;
-          console.log(data)
+          //console.log(data)
           this.setState({NoteHtml:data.html,
                          BlueNote:data.BlueNote,
                          RedNote:data.RedNote})
@@ -50,20 +51,19 @@ class ITNotes extends Component{
       }   
       
    }
- render(){
-       let ShowImgDiv = "";
-       if(this.state.src != "")
-       {
-         ShowImgDiv = <ShowImg src={this.state.src}  SetSrc={this.SetSrc.bind(this)} />
-       }
-       else
-         ShowImgDiv = ""
+   render(){
+      let ShowImgDiv = "";
+      if(this.state.src != "")
+      {
+        ShowImgDiv = <ShowImg src={this.state.src}  SetSrc={this.SetSrc.bind(this)} />
+      }
+      else
+        ShowImgDiv = ""
 
       return(
        <div  id="ITNoteMain" className="ITNotes"> 
            <div id="Contain">
                 <div dangerouslySetInnerHTML={{__html: this.state.NoteHtml}}></div>
-                {/* { ReactHtmlParser(this.state.NoteHtml) } */}
                 {/* <h1 class="title">自動Pull排成</h1>
                 <ul>
                    <li>寫這篇目的是讓每次發版不用連虛擬主機進行Pull，達成在本機Push，Server就會自動更新目的</li>
@@ -118,6 +118,7 @@ class ITNotes extends Component{
            {this.state.BlueNote || '' != ""?(<BlueNotes id="BlueNote" note={this.state.BlueNote}/>):null}
            {this.state.RedNote || '' != ""?(<RedNotes id="RedNote" note={this.state.RedNote}/>):null}
            <App/>
+           <MessageBoard Func={this.state.Func}/>
        </div>  
       );
    }

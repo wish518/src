@@ -1,3 +1,9 @@
+html{
+   overflow: hidden;
+}
 .red{
    color:red
 }
+::-webkit-scrollbar {
+   display: none;
+ }
