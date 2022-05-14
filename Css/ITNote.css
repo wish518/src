@@ -8,7 +8,9 @@
     scrollbar-width: none;
   }
   #Contain{
+    word-wrap: break-word;
     padding: 25px;
+    padding-right: 40px;
     font-size: 24px;
   }
 .title{
@@ -37,6 +39,7 @@
 }
 .comment{
   font-size: 14px;
+  width: 100%;
 }
 ul.comment li{
   list-style: disc;
@@ -193,4 +196,47 @@ ul.comment li{
   #MessageBoardDiv{
     padding: 20px ;
   }
+}
+@media(min-width: 1000px) {
+  #Contain{
+    padding: 50px;
+    font-size: 30px;
+  }
+  ul {
+    padding: 50px;
+  }
+  #Contain li{
+    font-size: 26px;
+  }
+  .comment{
+    font-size: 20px;
+  }
+  #MessageBoardDiv{
+    padding: 20px ;
+  }
+}
+@media(min-width: 660px) {
+  .comment{
+    font-size: 16px;
+  }
+}
+
+/*Command文字顏色*/
+.command div{
+  padding: 0!important;
+}
+.retain{
+  color: #E38EFF;
+}
+.element{
+  color:#00DDAA;
+}
+.variable{
+  color:#77DDFF
+}
+.class{
+  color:#FFFFBB
+}
+.string{
+  color:#FFAA33
 }
